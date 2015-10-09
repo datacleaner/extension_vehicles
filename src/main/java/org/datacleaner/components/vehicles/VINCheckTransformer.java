@@ -14,13 +14,14 @@ import org.datacleaner.api.InputColumn;
 import org.datacleaner.api.InputRow;
 import org.datacleaner.api.OutputColumns;
 import org.datacleaner.api.Transformer;
+import org.datacleaner.components.categories.ImproveSuperCategory;
 import org.datacleaner.components.categories.ProductDataCategory;
 
 @Named("VIN (Vehicle Identification Number) Check")
 @Description("The VIN validation takes the input and determines whether or not it is a valid VIN number.\n"
         + "It allows the input to be entered with upper or lower case, and allows dashes.\n"
         + "It will check if the input has the right length, that is has no illegal characters (I, O, Q), etc.")
-@Categorized(ProductDataCategory.class)
+@Categorized(superCategory = ImproveSuperCategory.class, value = ProductDataCategory.class)
 public class VINCheckTransformer implements Transformer {
 
     private static final int[] VALUES = { 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 0, 7, 0, 9, 2, 3, 4, 5, 6, 7, 8, 9 };
