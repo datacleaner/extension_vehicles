@@ -11,6 +11,13 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
+	<scm>
+		<url>https://github.com/datacleaner/extension_vehicles</url>
+		<connection>scm:git:https://github.com/datacleaner/extension_vehicles.git</connection>
+		<developerConnection>scm:git:https://github.com/datacleaner/extension_vehicles.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.eobjects.datacleaner</groupId>
