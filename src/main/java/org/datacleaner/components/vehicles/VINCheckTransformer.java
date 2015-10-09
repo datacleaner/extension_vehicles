@@ -3,7 +3,7 @@ DataCleaner extension which validates a vehicle identification number.
 
  @author Mark Ansink
  */
-package org.eobjects.datacleaner.vin;
+package org.datacleaner.components.vehicles;
 
 import javax.inject.Named;
 import org.datacleaner.api.Categorized;
