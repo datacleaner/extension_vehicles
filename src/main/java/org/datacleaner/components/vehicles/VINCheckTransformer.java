@@ -45,16 +45,17 @@ public class VINCheckTransformer implements Transformer {
         int value = 0;
 
         String s = inputRow.getValue(column);
+        s = s == null ? "" : s;
         s = s.replaceAll("-", "");
         s = s.toUpperCase();
 
         if (s.length() != 17) {
-            result = ("Invalid");
+            result = "Invalid";
             severity = 2;
-            message = ("VIN number must be 17 characters");
+            message = "VIN number must be 17 characters";
         } else {
             int sum = 0;
-            for (int i = 0; i < 17; i++) {
+            for (int i = 0; i < WEIGHTS.length; i++) {
                 char c = s.charAt(i);
 
                 int weight = WEIGHTS[i];
@@ -64,7 +65,7 @@ public class VINCheckTransformer implements Transformer {
                     value = VALUES[c - 'A'];
                     if (value == 0) {
                         severity = 3;
-                        message = ("Illegal character: " + c);
+                        message = "Illegal character: " + c;
                     }
                 }
 
@@ -75,7 +76,7 @@ public class VINCheckTransformer implements Transformer {
                 // illegal character
                 else {
                     severity = 3;
-                    message = ("Illegal character: " + c);
+                    message = "Illegal character: " + c;
                 }
                 sum = sum + weight * value;
 
@@ -96,9 +97,9 @@ public class VINCheckTransformer implements Transformer {
 
             else if (sum == check - '0') {
                 severity = 1;
-                result = ("Valid");
+                result = "Valid";
             } else {
-                result = ("Invalid");
+                result = "Invalid";
 
                 if (message.equals("")) {
                     severity = 5;
