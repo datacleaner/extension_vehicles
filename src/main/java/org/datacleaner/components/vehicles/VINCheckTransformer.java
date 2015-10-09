@@ -26,13 +26,8 @@ public class VINCheckTransformer implements Transformer {
     @Configured
     InputColumn<String> column;
 
-    String message;
-    String result;
-    Integer severity;
-    int value;
-
-    int[] values = { 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 0, 7, 0, 9, 2, 3, 4, 5, 6, 7, 8, 9 };
-    int[] weights = { 8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2 };
+    private static final int[] VALUES = { 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 0, 7, 0, 9, 2, 3, 4, 5, 6, 7, 8, 9 };
+    private static final int[] WEIGHTS = { 8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2 };
 
     @Override
     public OutputColumns getOutputColumns() {
@@ -43,13 +38,14 @@ public class VINCheckTransformer implements Transformer {
 
     @Override
     public Object[] transform(InputRow inputRow) {
+        String message = "";
+        String result = "";
+        Integer severity = null;
+        int value = 0;
+
         String s = inputRow.getValue(column);
         s = s.replaceAll("-", "");
         s = s.toUpperCase();
-        message = "";
-        result = "";
-        severity = null;
-        value = 0;
 
         if (s.length() != 17) {
             result = ("Invalid");
@@ -60,11 +56,11 @@ public class VINCheckTransformer implements Transformer {
             for (int i = 0; i < 17; i++) {
                 char c = s.charAt(i);
 
-                int weight = weights[i];
+                int weight = WEIGHTS[i];
 
                 // letter
                 if (c >= 'A' && c <= 'Z') {
-                    value = values[c - 'A'];
+                    value = VALUES[c - 'A'];
                     if (value == 0) {
                         severity = 3;
                         message = ("Illegal character: " + c);
