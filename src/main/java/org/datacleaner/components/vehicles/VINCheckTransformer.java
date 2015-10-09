@@ -17,17 +17,18 @@ import org.datacleaner.api.Transformer;
 import org.datacleaner.components.categories.ProductDataCategory;
 
 @Named("VIN (Vehicle Identification Number) Check")
-@Description("The VIN validation takes the input and determines whether or not it is a valid VIN number. " + "\\N"
-        + "It allows the input to be entered with upper or lower case, and allows dashes. " + "\\N"
+@Description("The VIN validation takes the input and determines whether or not it is a valid VIN number.\n"
+        + "It allows the input to be entered with upper or lower case, and allows dashes.\n"
         + "It will check if the input has the right length, that is has no illegal characters (I, O, Q), etc.")
 @Categorized(ProductDataCategory.class)
 public class VINCheckTransformer implements Transformer {
 
-    @Configured
-    InputColumn<String> column;
-
     private static final int[] VALUES = { 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 0, 7, 0, 9, 2, 3, 4, 5, 6, 7, 8, 9 };
     private static final int[] WEIGHTS = { 8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2 };
+
+    @Configured
+    @Description("A field containing VIN numbers to check")
+    InputColumn<String> column;
 
     @Override
     public OutputColumns getOutputColumns() {
