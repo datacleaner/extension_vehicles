@@ -10,11 +10,13 @@ This extension takes the input VIN number and determines whether or not it is a 
 It allows the input to be entered with upper or lower case, and allows dashes.
 It will check if the input has the right length, that is has no illegal characters (I, O, Q), etc.
 
-
+Job Example:
 ![Job Example](src/main/resources/org/eobjects/datacleaner/vin/ExampleJob.jpg?raw=true "Job Example")
 
+Configuration Example:
 ![Configuration Example](src/main/resources/org/eobjects/datacleaner/vin/ConfigurationExample.jpg?raw=true "Configuration Example")
 
+Result Example:
 ![Result Example](src/main/resources/org/eobjects/datacleaner/vin/ExampleResult.jpg?raw=true "Result Example")
 
 
