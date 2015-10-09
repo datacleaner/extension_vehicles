@@ -11,10 +11,10 @@ It allows the input to be entered with upper or lower case, and allows dashes.
 It will check if the input has the right length, that is has no illegal characters (I, O, Q), etc.
 
 
-![Job Example](https://github.com/datacleaner/extension_vehicles/tree/master/src/main/resources/org/eobjects/datacleaner/vin/ExampleJob.jpg)
+![Job Example](src/main/resources/org/eobjects/datacleaner/vin/ExampleJob.jpg?raw=true)
 
-![Configuration Example](https://github.com/datacleaner/extension_vehicles/tree/master/src/main/resources/org/eobjects/datacleaner/vin/ConfigurationExample.jpg)
+![Configuration Example](src/main/resources/org/eobjects/datacleaner/vin/ConfigurationExample.jpg?raw=true)
 
-![Result Example](https://github.com/datacleaner/extension_vehicles/tree/master/src/main/resources/org/eobjects/datacleaner/vin/ExampleResult.jpg)
+![Result Example](src/main/resources/org/eobjects/datacleaner/vin/ExampleResult.jpg?raw=true)
 
 
