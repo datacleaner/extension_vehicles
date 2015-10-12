@@ -17,7 +17,7 @@ import org.datacleaner.api.Transformer;
 import org.datacleaner.components.categories.ImproveSuperCategory;
 import org.datacleaner.components.categories.ProductDataCategory;
 
-@Named("VIN (Vehicle Identification Number) Check")
+@Named("VIN (Vehicle Identification Number) check")
 @Description("The VIN validation takes the input and determines whether or not it is a valid VIN number.\n"
         + "It allows the input to be entered with upper or lower case, and allows dashes.\n"
         + "It will check if the input has the right length, that is has no illegal characters (I, O, Q), etc.")
